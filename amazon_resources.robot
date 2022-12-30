@@ -1,11 +1,15 @@
 *** Settings ***
 Library    SeleniumLibrary
 
+*** Variable ***
+&{MESES_ANO_DIAS}       janeiro=31  fevereiro=28  marco=31  abril=30  maio=31  junho=30  julho=31  agosto=31  setembro=30  outubro=31  novembro=30  dezembro=31
+
 *** Variables ***
 ${URL}                   https://www.amazon.com.br/
 ${MENU_ELETRONICOS}      //a[@href='/Eletronicos-e-Tecnologia/b/?ie=UTF8&node=16209062011&ref_=nav_cs_electronics'][contains(.,'Eletrônicos')]
 ${TITULO_ELETRONICOS}    //h1[contains(.,'Eletrônicos e Tecnologia')]
 ${CAMPO_BUSCA}           //input[contains(@type,'text')]
+@{MESES_ANO}             Janeiro  Fevereiro  Março  Abril  Maio  Junho  Julho  Agosto  Setembro  Outubro  Novembro  Dezembro
 
 *** Keywords ***
 Abrir navegador
@@ -83,3 +87,33 @@ Quando remover o produto "Console Xbox Series S" do carrinho
 
 Então o carrinho deve ficar vazio
     Verificar se o carrinho fica vazio
+
+#----------------------------------
+
+Mostrar os meses do ano
+    Log To Console    ${MESES_ANO[0]}
+    Log To Console    ${MESES_ANO[1]}
+    Log To Console    ${MESES_ANO[2]}
+    Log To Console    ${MESES_ANO[3]}
+    Log To Console    ${MESES_ANO[4]}
+    Log To Console    ${MESES_ANO[5]}
+    Log To Console    ${MESES_ANO[6]}
+    Log To Console    ${MESES_ANO[7]}
+    Log To Console    ${MESES_ANO[8]}
+    Log To Console    ${MESES_ANO[9]}
+    Log To Console    ${MESES_ANO[10]}
+    Log To Console    ${MESES_ANO[11]}
+
+Mostrar quantidade de dias de cada mes
+    Log To Console    Janeiro = ${MESES_ANO_DIAS.janeiro}
+    Log To Console    Fevereiro = ${MESES_ANO_DIAS.fevereiro}
+    Log To Console    Março = ${MESES_ANO_DIAS.marco}
+    Log To Console    Abril = ${MESES_ANO_DIAS.abril}
+    Log To Console    Maio = ${MESES_ANO_DIAS.maio}
+    Log To Console    Junho = ${MESES_ANO_DIAS.junho}
+    Log To Console    Julho = ${MESES_ANO_DIAS.julho}
+    Log To Console    Agosto = ${MESES_ANO_DIAS.agosto}
+    Log To Console    Setembro = ${MESES_ANO_DIAS.setembro}
+    Log To Console    Outubro = ${MESES_ANO_DIAS.outubro}
+    Log To Console    Novembro = ${MESES_ANO_DIAS.novembro}
+    Log To Console    Dezembro = ${MESES_ANO_DIAS.dezembro}
